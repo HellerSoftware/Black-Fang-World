@@ -1,0 +1,34 @@
+{
+  "name": "black-fang-world",
+  "version": "1.0.0",
+  "description": "Juego RPG",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HellerSoftware/Black-Fang-World.git"
+  },
+  "keywords": [
+    "Electron",
+    "Juego",
+    "Videojuego",
+    "RPG",
+    "rpg",
+    "Aplicacion",
+    "NodeJS",
+    "HTML",
+    "CSS",
+    "JS",
+    "JavaScript",
+    "Windows",
+    "Node.js"
+  ],
+  "author": "Jorge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HellerSoftware/Black-Fang-World/issues"
+  },
+  "homepage": "https://github.com/HellerSoftware/Black-Fang-World#readme"
+}
