@@ -2,9 +2,9 @@
   "name": "black-fang-world",
   "version": "1.0.0",
   "description": "Juego RPG",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "cd C:/Users/puvei/Desktop/Black-Fang-World/Black-Fang-World && electron ."
   },
   "repository": {
     "type": "git",
@@ -33,5 +33,8 @@
   "homepage": "https://github.com/HellerSoftware/Black-Fang-World#readme",
   "devDependencies": {
     "electron": "^12.0.0"
+  },
+  "dependencies": {
+    "electron-reload": "^1.5.0"
   }
 }

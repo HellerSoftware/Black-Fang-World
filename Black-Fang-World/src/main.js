@@ -1,22 +1,20 @@
-const {BrowserWindow} = require('electron');
+const {app, BrowserWindow} = require('electron');
+const path = require('path');
 
-
-let win;
 
 function createWindow(){
-    win = new BrowserWindow({
+    let mainWindow = new BrowserWindow({
         frame: true,
         width: 800,
         heiht: 600,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: false,
+            preload: path.join(__dirname, 'preload.js')
         }
     })
     //win.setMenu(null);
-    win.loadFile('./src/app/UI/mainUI.html');
+    mainWindow.loadFile('./src/app/UI/UI.html');
     //win.maximize();
 }
-
-module.exports = {
-    createWindow,
-}
+require('electron-reload')(__dirname)
+app.whenReady().then(createWindow);
