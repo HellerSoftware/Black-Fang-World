@@ -1,7 +1,3 @@
-const {main} = require('./app/JS/app_index')
+const { ipcRenderer } = require('electron')
+ipcRenderer.invoke('perform-action', ...args)
 
-window.addEventListener('DOMContentLoaded', () => {
-
-    main();
-
-})
