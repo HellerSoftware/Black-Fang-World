@@ -14,9 +14,9 @@ function createWindow(){
             //preload: path.join(__dirname, 'preload.js')
         }
     })
-    //win.setMenu(null);
+    //mainWindow.setMenu(null);
     mainWindow.loadFile('./src/app/UI/UI.html');
-    //win.maximize();
+    //mainWindow.maximize();
 }
 
 require('electron-reload')(__dirname)

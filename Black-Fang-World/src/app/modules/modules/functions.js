@@ -1,3 +1,19 @@
+function gameObject(){
+    this.gameVersion = '1.0.0';
+    this.currentView;
+    this.userInfoDir = 'c:/HellerGames/BFW/';
+    /*this.gameFilesSRC = gameFilesSRC;
+    this.LocalTexturesSRC = LocalTexturesSRC;
+    this.userLogsSRC = userLogsSRC;
+    this.userPath = userPath;
+    this.userName = userName;
+    this.currentUserInfo = currentUserInfo;
+    this.UserEncodedInfo = UserEncodedInfo;*/
+
+    this.changeCurrentView = function(view){viewChange(viewReturn(view));this.currentView = view; return 'vista cambiada a: ' + this.currentView;}
+
+}
+
 //codificador y decodificador
 function encoderReturn(te){
     var teD1 = btoa(te);
@@ -31,62 +47,65 @@ function decoderReturn(te){
 
 
 
-
-
-
-//creador de ficheros
-var fs = require('fs');
-function folderCreator(path){
-
-    fs.mkdir(path, { recursive: true }, (err) => {
-        if (err) throw err;
-    });
-
-}
-
-
-
-
-
-
-
-
-//creador de archivos
-var fs = require("fs");
-function fileCreator(path, content){
-
-    let promesaEscrituraArchivo = new Promise((resolve, reject) => {
-        fs.writeFile(path, content, (error) => {
-            if(error){
-                reject(error);
-            } else {
-                resolve();
+function dc(path = 'c:/', fileName = '', content = ''){
+    var fs = require('fs');
+    if(path == '' && fileName == ''){
+        return 'error';
+    }
+    if(path == ''){
+        path = 'c:/';
+    }
+    if(path == 'c:/' || path == 'C:/'){
+        if(fileName == ''){
+            return 'error';
+        }
+        else{    
+            var fileDir = path + '/' + fileName;
+            fs.writeFile(fileDir, content, (err) => {if (err) throw err;});
+        }
+    }
+    else{
+        var pathArray = path.split('/');
+        if(pathArray[0] == 'c:' || pathArray[0] == 'C:'){
+            for(var i = 1; i < pathArray.length; i++){
+                var imo = i-1;
+                pathArray[i] = pathArray[imo] + '/' + pathArray[i];
+                fs.mkdir(pathArray[i], { recursive: true }, (err) => {if (err) throw err;});
             }
-        });
-    });
+        }
+        else{
+            path = 'c:/' + path;
+            var pathArray = path.split('/');
+            for(var i = 1; i < pathArray.length; i++){
+                var imo = i-1;
+                pathArray[i] = pathArray[imo] + '/' + pathArray[i];
+                fs.mkdir(pathArray[i], { recursive: true }, (err) => {if (err) throw err;});
+            }
+        }
+        if(path != '' && fileName != ''){
+            var fileDir = path + '/' + fileName;
+            fs.writeFile(fileDir, content, (err) => {if (err) throw err;});
+        }
+    }
+}
 
-    promesaEscrituraArchivo
-    .then(() => {
-        console.log('1');
-    })
-    .catch((error) => {
-        console.log('0 err', error);
-    });
+function de(path){
 
 }
+
 
 
 
 
 function function_registration_and_login(){
-    console.log('Esto es lo que hace la funcion de registro');
+    console.log('Ejecutando funcion de registro e inicio de sesion');
 }
 
 
 module.exports = {
+    gameObject,
     encoderReturn,
     decoderReturn,
-    folderCreator,
-    fileCreator,
+    dc,
     function_registration_and_login
 }
