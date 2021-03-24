@@ -23,12 +23,14 @@ var allWorld = [
     ['',            'q', 'b    ', 'v']
 ];
 
-var Map1Code = fs.readFileSync('c:/HellerGames/BFW/maps/surface/'+ allWorld[2][2] + '/x1y1/map.bfwmap', 'utf8');
+var Map1Code = fs.readFileSync('c:/HellerGames/BFW/maps/surface/map1/x1y1/map.bfwmap', 'utf8');
 var map1Y = Map1Code.split('\n');
 var map1 = [];
 for(var i = 0; i < map1Y.length; i++){
     var map = map1Y[i];
+    for(var j = 0; j < map1Y[i].length; j++){
     map1[i] = map.split('-');
+    }
 }
 //
 
@@ -59,60 +61,42 @@ else{
     document.write(map1[3][35] + '<br>');
     //document.write('var y' + i + '= []; <br>')
 }*/
-heightScreenResolution = screen.height;
-textureSize = heightScreenResolution / 26 - 1;
-console.log(textureSize);
-appUI.innerHTML = '<div id="el"></div>';
+
+function tamVentana(){var tam = [0, 0];if (typeof window.innerWidth != 'undefined'){tam = [window.innerWidth,window.innerHeight];}else if (typeof document.documentElement != 'undefined'&& typeof document.documentElement.clientWidth !='undefined' && document.documentElement.clientWidth != 0){tam = [document.documentElement.clientWidth,document.documentElement.clientHeight];}else{tam = [document.getElementsByTagName('body')[0].clientWidth,document.getElementsByTagName('body')[0].clientHeight];}return tam;}
+
+
+var heightScreenResolution = screen.height;
+var WindowResolution = tamVentana();
+var textureSizeH = (WindowResolution[1] / 25);
+var textureSizeW = (WindowResolution[0] / 25);
+console.log(tamVentana());
+appUI.innerHTML = '<div id="el" style="text-align: center;"></div>';// style="float: right";
 var mapElements = document.getElementById('el');
-function mapCreate(y, x){
+function mapCreate(m, y, x){
 
-    ts = textureSize;
+    tsh = textureSizeH;
     
-    if(map1[y][x] == 'ground'){
-        mapElements.innerHTML += '<div class="ground" style="width: ' + ts + 'px; height: ' + ts + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/ground.png' + ');"></div>';
+    if(m[y][x] == 'ground'){
+        mapElements.innerHTML += '<div class="ground" style="width: ' + tsh + 'px; height: ' + tsh + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/ground.png' + ');"></div>';
     }
-    if(map1[y][x] == 'stone_'){
-        mapElements.innerHTML += '<div class="stone" style="width: ' + ts + 'px; height: ' + ts + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/stone.png' + ');"></div>';
+    if(m[y][x] == 'stone_'){
+        mapElements.innerHTML += '<div class="stone" style="width: ' + tsh + 'px; height: ' + tsh + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/stone.png' + ');"></div>';
     }
-    if(map1[y][x] == 'water_'){
-        mapElements.innerHTML += '<div class="water" style="width: ' + ts + 'px; height: ' + ts + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/water.png' + ');"></div>';
+    if(m[y][x] == 'water_'){
+        mapElements.innerHTML += '<div class="water" style="width: ' + tsh + 'px; height: ' + tsh + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/water.png' + ');"></div>';
     }
-    if(map1[y][x] == 'none__'){
-        mapElements.innerHTML += '<div class="none" style="width: ' + ts + 'px; height: ' + ts + 'px;"></div>';
-    }
-}
-
-
-for(var i=1; i<26; i++) {
-    for(var j=1; j<36; j++) {
-        mapCreate(i, j);
+    if(m[y][x] == 'none__'){
+        mapElements.innerHTML += '<div class="none" style="width: ' + tsh + 'px; height: ' + tsh + 'px;"></div>';
     }
 }
 
-/*
-    var i2 = 1;
-    if(i2 == 1)
-    for(var i = 1; i < 36; i++){
-console.log(map1)}
-for(var i=0; i<map1.length; i++) {
-    for(var j=0; j<map1[i].length; j++) {
-
-        var e = map1[i][j];
-        console.log(e)
-        if(e == 'ground'){
-            mapElements.innerHTML = '<div class="ground" style="width: 56px;height: 56px; background-image:url(' + 'c:/HellerGames/BFW/textures/ground.png' + ');"></div>';
-        }
-        if(e == 'stone'){
-            mapElements.innerHTML = 'div class="stone" style="width: 56px;height: 56px; background-image:url(' + 'c:/HellerGames/BFW/textures/stone.png' + ');"></div>';
-        }
-        if(e == 'water'){
-            mapElements.innerHTML = '<div class="water" style="width: 56px;height: 56px; background-image:url(' + 'c:/HellerGames/BFW/textures/water.png' + ');"></div>';
-        }
-        if(e == 'none'){
-            mapElements.innerHTML = '<div class="none" style="width: 56px;height: 56px;"></div>';
-        }
+console.log(map1)
+for(var i = 0 ; i < map1.length; i++) {
+    for(var j = 0; j < map1[i].length; j++) {
+        mapCreate(map1, i, j);
     }
 }
+
 /*
 for(var i = 0; i < 25; i++){
     console.log(mapX[i])
