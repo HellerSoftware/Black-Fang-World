@@ -16,7 +16,7 @@ function createWindow(){
     })
     //mainWindow.setMenu(null);
     mainWindow.loadFile('./src/app/UI/UI.html');
-    mainWindow.maximize();
+    //mainWindow.maximize();
 }
 
 require('electron-reload')(__dirname)

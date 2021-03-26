@@ -9,7 +9,7 @@ function startGame(playerName){
         map1[i] = map.split('-');
         }
     }
-
+    appUI.innerHTML = '';
     appUI.innerHTML = '<div id="el" style="float: right;"></div>';
 
     var mapElements = document.getElementById('el');

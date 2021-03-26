@@ -2,8 +2,7 @@ function viewChange(winCode){if(appUI){appUI.innerHTML=winCode;}}
 
 function viewReturn(view_name){
 
-    var view_registration_and_login =''
-    var a =
+    var view_registration_and_login = 
     `
     <div id="mainMenu1">
         <div id="mainMenu2">
@@ -31,6 +30,18 @@ function viewReturn(view_name){
             <div class="ri">
                 <input type="text" id="nameR" class="input-style1" placeholder="Nombre: ">
                 <input type="password" id="passwordR" class="input-style1" placeholder="Contraseña: ">
+                <div>
+                        <p style="font-size: 12px; text-align: left; display: inline-block; width: 10px; border: 1px; margin: 0 22px;">Hombre:</p>
+                        <input type="radio" id="sex" name="sexOpt" style="font-size: 12px; text-align: left; display: inline-block; width: 10px; border: 1px; margin: 0 15px;" value="H">
+                    </div>
+                    <div>
+                        <p style="font-size: 12px; text-align: left; display: inline-block; width: 10px; border: 1px; margin: 0 22px;">Mujer:</p>
+                        <input type="radio" id="sex" name="sexOpt" style="font-size: 12px; text-align: left; display: inline-block; width: 10px; border: 1px; margin: 0 15px;" value="M">
+                    </div>
+                    <div>
+                        <p style="font-size: 12px; text-align: left; display: inline-block; width: 10px; border: 1px; margin: 0 22px;">Helicoptero apache:</p>
+                        <input type="radio" id="sex" name="sexOpt" style="font-size: 12px; text-align: left; display: inline-block; width: 10px; border: 1px; margin: 0 15px;" value="O">
+                    </div>
                 <div style="text-align: center;">
                     <button type="submit" class="button-ri btn-n rb">Registrarse</button>
                 </div>
@@ -51,69 +62,6 @@ function viewReturn(view_name){
         </form>
     </div>
     </div>
-    `;
-    
-    var menu1 = 
-    `
-    <link rel="stylesheet" href="styles/neon-menu.css">
-        <div>
-        <div class="neon-border">
-        <div class="neon-border" style="width: 20px;"></div>
-        <h1 class="neon-text" style="text-align: center; font-size: 50px; padding: 20px;">Black Fang World</h1>
-    </div>
-    <div class="neon-border2" style=" width: 105px; float: left; margin: 0; border-radius: 3px;">
-        <div id="menuGame-btnMore" style=" border-radius: 10px; cursor: pointer;">
-            <br>
-            <hr>
-            <hr>
-            <hr>
-            <br>
-        </div>
-        <buttonAudio><button id="musicOnOffButton" class="neon-border neon-text" style="width: 104px; font-size: 15px;"><p id="sayMOnOff"></p></button></buttonAudio>
-        <button id="webPageLink1" class="neon-border neon-text" style="width: 104px; font-size: 15px; margin-top: 5px;">Pagina web</button>
-        <button id="masPage" class="neon-border neon-text" style="width: 104px; font-size: 15px; margin-top: 5px;">Mas<br>-</button>
-        <button id="storePage" class="neon-border neon-text" style="width: 104px; font-size: 15px; margin-top: 5px;">Tienda -</button>
-        <button id="closeApp" class="neon-border neon-text" style="width: 104px; font-size: 15px; margin-top: 5px;">CERRAR -</button>
-        
-        
-    </div>
-    <div>
-        <div>
-            <neon-btn>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                HISTORIA
-            </neon-btn>
-        </div>
-        
-        <div>
-            <neon-btn>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                PVAI
-            </neon-btn>
-        </div>
-        <div>
-            <neon-btn>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                PVP
-            </neon-btn>
-        </div>
-    </div>
-    
-        <hr style="width: 104px; margin: 0;">
-        <div id="nih"></div>
-        <hr style="width: 104px; margin: 0;">
-    
-    <div id="page-s" style="color: #ffffff;"></div>
-    <input type="range" min="0" max="1" value="0.5" step="0.01" id="mislider" style="width: 100px; height: 3px; display: none">
     `;
 
     if(view_name == 'view_registration_and_login_1'){

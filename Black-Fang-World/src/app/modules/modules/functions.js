@@ -94,7 +94,7 @@ function de(path){
 }
 
 
-
+function winResolutionReturn(){var res = [0, 0];if(typeof window.innerWidth != 'undefined'){res = [window.innerWidth,window.innerHeight];}else if(typeof document.documentElement != 'undefined'&& typeof document.documentElement.clientWidth !='undefined' && document.documentElement.clientWidth != 0){res = [document.documentElement.clientWidth,document.documentElement.clientHeight];}else{res = [document.getElementsByTagName('body')[0].clientWidth,document.getElementsByTagName('body')[0].clientHeight];}return res;}
 
 
 function function_registration_and_login(){
@@ -107,5 +107,6 @@ module.exports = {
     encoderReturn,
     decoderReturn,
     dc,
+    winResolutionReturn,
     function_registration_and_login
 }
