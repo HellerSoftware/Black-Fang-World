@@ -17,28 +17,30 @@ function startGame(playerName){
     var textureSizeH = (windowResolution[1] / 25);
     var textureSizeW = (windowResolution[0] / 25);
 
-    function mapCreate(m, y, x){
+    function mapCreate(id, m, y, x){
     
-        tsh = textureSizeH;
+        var tsh = textureSizeH;
+        var idName = id;
         
         if(m[y][x] == 'ground'){
-            mapElements.innerHTML += '<div class="ground" style="width: ' + tsh + 'px; height: ' + tsh + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/ground.png' + ');"></div>';
+            mapElements.innerHTML += '<div element-type="g1" id="' + idName + '" style="width: ' + tsh + 'px; height: ' + tsh + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/ground.png' + ');"></div>';
         }
         if(m[y][x] == 'stone_'){
-            mapElements.innerHTML += '<div class="stone" style="width: ' + tsh + 'px; height: ' + tsh + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/stone.png' + ');"></div>';
+            mapElements.innerHTML += '<div element-type="s3" id="' + idName + '" style="width: ' + tsh + 'px; height: ' + tsh + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/stone.png' + ');"></div>';
         }
         if(m[y][x] == 'water_'){
-            mapElements.innerHTML += '<div class="water" style="width: ' + tsh + 'px; height: ' + tsh + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/water.png' + ');"></div>';
+            mapElements.innerHTML += '<div element-type="w1" id="' + idName + '" style="width: ' + tsh + 'px; height: ' + tsh + 'px; background-image:url(' + 'c:/HellerGames/BFW/textures/water.png' + ');"></div>';
         }
         if(m[y][x] == 'none__'){
-            mapElements.innerHTML += '<div class="none" style="width: ' + tsh + 'px; height: ' + tsh + 'px;"></div>';
+            mapElements.innerHTML += '<div element-type="nn" id="' + idName + '" style="width: ' + tsh + 'px; height: ' + tsh + 'px;"></div>';
         }
     }
     
     console.log(map1)
     for(var i = 0 ; i < map1.length; i++) {
         for(var j = 0; j < map1[i].length; j++) {
-            mapCreate(map1, i, j);
+            var idN = i + '-' + j;
+            mapCreate(idN, map1, i, j);
         }
     }
 }

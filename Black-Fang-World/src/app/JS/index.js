@@ -53,3 +53,5 @@ var windowResolution = winResolutionReturn();
 console.log('Resolucion de la ventana: ' + windowResolution[0] + ' x ' + windowResolution[1] + '\n' + 'Resolucion de la pantalla: ' + widthScreenResolution + ' x ' + heightScreenResolution);
 game.changeCurrentView('view_registration_and_login_1');
 //startGame();
+//var cookieValue = document.getElementById('3-16').getAttribute('element-type');
+//alert(cookieValue);
