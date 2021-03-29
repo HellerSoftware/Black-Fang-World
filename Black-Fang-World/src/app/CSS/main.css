@@ -11,7 +11,7 @@ div{
 }
 #el{
     display: grid;
-    grid-template-columns: 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr;
+    grid-template-columns: repeat(36, 0fr);
     gap: 0px;
     margin: 0px 0;
 }
